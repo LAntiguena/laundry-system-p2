@@ -111,9 +111,6 @@ const HeaderAdmin = () => {
           <li>
             <Link to={`./${PrivateRoutes.REPORTES}`}>Reportes</Link>
           </li>
-          {/* <li>
-            <Link to={`./${PrivateRoutes.GRAFICOS}`}>Graficos</Link>
-          </li> */}
           <li>
             <Link to={`./${PrivateRoutes.SETTING}`}>Ajustes</Link>
           </li>
