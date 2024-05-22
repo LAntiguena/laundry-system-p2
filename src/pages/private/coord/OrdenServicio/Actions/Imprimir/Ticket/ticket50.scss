@@ -253,6 +253,7 @@ $sText: 0.8em;
                 font-size: $sText;
 
                 &:first-child {
+                  padding-right: 15px;
                   text-align: right;
                 }
               }
