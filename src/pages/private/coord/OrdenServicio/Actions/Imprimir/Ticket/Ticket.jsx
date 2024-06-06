@@ -360,7 +360,7 @@ const Ticket = React.forwardRef((props, ref) => {
                     <tr>
                       <th></th>
                       <th>Cantidad</th>
-                      <th>Servicio</th>
+                      <th>Item</th>
                       {!tipoTicket ? (
                         <>
                           <th style={{ width: "75px" }}>Precio U.</th>
@@ -371,7 +371,7 @@ const Ticket = React.forwardRef((props, ref) => {
                   </thead>
                   <tbody>
                     {infoOrden.Items.filter(
-                      (p) => p.identificador !== getInfoDelivery()._id
+                      (p) => p.identificador !== getInfoDelivery()?._id
                     ).map((p, index) => (
                       <React.Fragment key={`${infoOrden._id}-${index}`}>
                         <tr>
@@ -401,10 +401,7 @@ const Ticket = React.forwardRef((props, ref) => {
                         <td colSpan="4">Subtotal :</td>
                         <td>
                           {formatThousandsSeparator(
-                            infoOrden.Items.reduce(
-                              (total, p) => total + parseFloat(p.total),
-                              0
-                            ) -
+                            infoOrden.subTotal -
                               (infoOrden?.Modalidad === "Delivery"
                                 ? montoDelivery()
                                 : 0)
@@ -457,7 +454,7 @@ const Ticket = React.forwardRef((props, ref) => {
                 {infoOrden?.descuento > 0 && !tipoTicket ? (
                   <div className="space-ahorro">
                     <h2 className="title">
-                      ! Felicidades Ahorraste
+                      ! Felicidades Ahorraste&nbsp;
                       {formatThousandsSeparator(infoOrden?.descuento, true)} ¡
                     </h2>
                     {infoOrden?.modoDescuento === "Promocion" ? (

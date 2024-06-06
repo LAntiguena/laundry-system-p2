@@ -7,7 +7,7 @@ import { PrivateRoutes, Roles } from "../../../../models/index";
 import Logout from "../../Logout/Logout";
 import "./headerCoord.scss";
 
-import { ReactComponent as Logo } from "../../../../utils/img/Logo/logo2.svg";
+import { ReactComponent as Logo } from "../../../../utils/img/Logo/logo.svg";
 
 const HeaderUser = () => {
   const userState = useSelector((store) => store.user.infoUsuario);
@@ -173,15 +173,20 @@ const HeaderUser = () => {
           {(userState.rol === Roles.ADMIN || userState.rol === Roles.GERENTE) &&
           isSmallScreen ? (
             <>
+              {/* <li>
+                <Link to={`./${PrivateRoutes.PERSONAL}`} className="active">
+                  ASISTENCIA
+                </Link>
+              </li>
+              <li>
+                <Link to={`./${PrivateRoutes.CLIENTES}`}>Clientes</Link>
+              </li> */}
               <li>
                 <Link to={`./${PrivateRoutes.PROMOCIONES}`}>Promociones</Link>
               </li>
               <li>
                 <Link to={`./${PrivateRoutes.REPORTES}`}>Reportes</Link>
               </li>
-              {/* <li>
-                <Link to={`./${PrivateRoutes.GRAFICOS}`}>Graficos</Link>
-              </li> */}
               <li className="pages-admin">
                 <Link to={`./${PrivateRoutes.SETTING}`}>Ajustes</Link>
               </li>
